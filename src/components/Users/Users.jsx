@@ -1,9 +1,22 @@
-import React from 'react';
-
+import { useLoaderData } from "react-router-dom";
+import User from "../User/User";
+import './Users.css'
 const Users = () => {
+
+    const users = useLoaderData()
+
+
+
     return (
+
+
         <div>
-            <h1>I am a user of React Router</h1>
+            <h1>Our Users: {users.length}</h1>
+            <div  className="Users">
+            {
+                users.map(user => <User key={user.id} user={user}></User>)
+            }
+            </div>
         </div>
     );
 };
